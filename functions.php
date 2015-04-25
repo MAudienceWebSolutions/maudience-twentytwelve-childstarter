@@ -85,12 +85,17 @@ require_once('lib/maudience-phonenumber.php');
         /* ADD ADMIN CSS STYLES HERE */
 
         function ma_custom_admin_styles() {
-           echo '<style type="text/css">
+            $menu_background_color = 'rgba(4, 55, 137,1)';
+            $menu_link_color = 'rgba(249,190,25,0.6)';
+            $menu_currentnav_color = 'rgba(249,190,25,1)';
+            $menu_linkhover_color_gradcolorone = '#f9f9f9';
+            $menu_linkhover_color_gradcolortwo = '#c9c9c9';
+            echo '<style type="text/css">
                /* Styles here! */
+
                 body {font-family: Futura, "Trebuchet MS", Arial, sans-serif;}
+
                /*change sidebar icon for testimonials, staff, tips, videos */
-
-
                /*
 
                 uncomment and set custom post type admin icon styles here
@@ -108,17 +113,26 @@ require_once('lib/maudience-phonenumber.php');
                
                /* change admin menu coloring */ 
 
-                #adminmenu, #adminmenu .wp-submenu, #adminmenuback, #adminmenuwrap { background-color: #043789; }
-                #adminmenu .wp-submenu a {color: rgba(249,190,25,0.6);}
+                /*MENU BACKGROUND COLOR*/
+                #adminmenu, #adminmenu .wp-submenu,
+                #adminmenuback, #adminmenuwrap { background-color: '.$menu_background_color.'; }
+
+                /*MENU LINK COLOR*/
+                #adminmenu .wp-submenu a { color: '.$menu_link_color.'; }
+
+                /*MENU CURRENT NAV COLOR*/
                 #adminmenu .opensub .wp-submenu li.current a,
                 #adminmenu .wp-submenu li.current, 
                 #adminmenu .wp-submenu li.current a, 
                 #adminmenu .wp-submenu li.current a:focus, 
                 #adminmenu .wp-submenu li.current a:hover, 
-                #adminmenu a.wp-has-current-submenu:focus+.wp-submenu li.current a { color: rgba(249,190,25,1); }
+                #adminmenu a.wp-has-current-submenu:focus+.wp-submenu li.current a { '.$menu_currentnav_color.'; }
+
+                /*MENU LINK HOVER COLOR*/
                 #adminmenu li.menu-top:hover,
                 #adminmenu li.opensub>a.menu-top, 
-                #adminmenu li>a.menu-top:focus { background: linear-gradient(to bottom,#f9f9f9 37%,#c9c9c9 100%); }
+                #adminmenu li>a.menu-top:focus { background: linear-gradient(to bottom,'.$menu_linkhover_color_gradcolorone.' 37%,'.$menu_linkhover_color_gradcolortwo.' 100%); }
+
              </style>';
         }
         add_action('admin_head', 'ma_custom_admin_styles');
