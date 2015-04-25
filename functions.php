@@ -1,6 +1,7 @@
 <?php
 
-global $maudience_client_slug = 'MAUDIENCE-CLIENT-NAME';
+//global $maudience_client_slug = '';
+define( 'MAUDIENCE_CLIENT_SLUT', 'enter_client_name_here' );
 require_once('lib/custom-post-types.php');
 require_once('lib/maudience-phonenumber.php');
 
@@ -40,7 +41,7 @@ require_once('lib/maudience-phonenumber.php');
  */
 
     function maudience_scripts() {
-        wp_enqueue_style( $maudience_client_slug.'-css', get_stylesheet_directory_uri()."lib/css/style.css" );
+        wp_enqueue_style( MAUDIENCE_CLIENT_SLUT.'-css', get_stylesheet_directory_uri()."lib/css/style.css" );
     }
     add_action( 'wp_enqueue_scripts', 'maudience_scripts', 15 );
 
@@ -75,18 +76,105 @@ require_once('lib/maudience-phonenumber.php');
       );
     }
     add_action( 'init', 'maudience_menus_init' );
+
 /*
-#   Create widget info for above function: lm_add_dashboard_widgets
+#
+#   WHITE LABEL
+#
 */
-    function lm_theme_info() {
-      echo "
-          <ul>
-          <li><strong>Developed By:</strong> MAudience</li>
-          <li><strong>Website:</strong> <a href='http://maudience.com'>http://www.maudience.net</a></li>
-          <li><strong>Contact:</strong> <a href='mailto:pete@maudience.com'>pete@maudience.com</a></li>
-          </ul>"
-      ;
-    }
+        /* ADD ADMIN CSS STYLES HERE */
+
+        function ma_custom_admin_styles() {
+           echo '<style type="text/css">
+               /* Styles here! */
+                body {font-family: Futura, "Trebuchet MS", Arial, sans-serif;}
+               /*change sidebar icon for testimonials, staff, tips, videos */
+
+
+               /*
+
+                uncomment and set custom post type admin icon styles here
+
+                #menu-posts-testimonials .dashicons-admin-post:before,
+                #menu-posts-testimonials .dashicons-format-standard:before { content:"\f155"; }
+                #menu-posts-staff .dashicons-admin-post:before,
+                #menu-posts-staff .dashicons-format-standard:before { content:"\f307"; }
+                #menu-posts-carcarevideos .dashicons-admin-post:before,
+                #menu-posts-carcarevideos .dashicons-format-standard:before { content:"\f126"; }
+                #menu-posts-carcaretips .dashicons-admin-post:before,
+                #menu-posts-carcaretips .dashicons-format-standard:before { content:"\f339"; }
+
+                */
+               
+               /* change admin menu coloring */ 
+
+                #adminmenu, #adminmenu .wp-submenu, #adminmenuback, #adminmenuwrap { background-color: #043789; }
+                #adminmenu .wp-submenu a {color: rgba(249,190,25,0.6);}
+                #adminmenu .opensub .wp-submenu li.current a,
+                #adminmenu .wp-submenu li.current, 
+                #adminmenu .wp-submenu li.current a, 
+                #adminmenu .wp-submenu li.current a:focus, 
+                #adminmenu .wp-submenu li.current a:hover, 
+                #adminmenu a.wp-has-current-submenu:focus+.wp-submenu li.current a { color: rgba(249,190,25,1); }
+                #adminmenu li.menu-top:hover,
+                #adminmenu li.opensub>a.menu-top, 
+                #adminmenu li>a.menu-top:focus { background: linear-gradient(to bottom,#f9f9f9 37%,#c9c9c9 100%); }
+             </style>';
+        }
+        add_action('admin_head', 'ma_custom_admin_styles');
+
+        //* Replace WordPress login logo with your own
+        function ma_custom_login_logo() {
+            echo '<style type="text/css">
+            body { font-family: Futura, "Trebuchet MS", Arial, sans-serif; }
+            h1 a 
+            { 
+                background-image:url('.get_stylesheet_directory_uri().'/img/european-motors-menu-logo.png) !important; 
+                background-size: 211px auto !important;
+                height: 200px !important;
+                width: 311px !important; 
+                margin-bottom: 0 !important; 
+                padding-bottom: 0 !important; 
+            }
+            .login form { margin-top: 10px !important; border: 1px solid #f9be19; }
+            .login {background:#043789;}
+            </style>';
+        }
+        add_action('login_head', 'ma_custom_login_logo');
+        //* Change the URL of the WordPress login logo
+        function ma_url_login_logo(){ return get_bloginfo( 'wpurl' ); }
+        add_filter('login_headerurl', 'ma_url_login_logo');
+
+        //* Login Screen: Change login logo hover text
+        function ma_login_logo_url_title() { return 'Thank You For Working With Maudience'; }
+        add_filter( 'login_headertitle', 'ma_login_logo_url_title' );
+
+        //* Login Screen: Don't inform user which piece of credential was incorrect
+        function ma_failed_login () { return 'The login information you have entered is incorrect. Please try again.'; }
+        add_filter ( 'login_errors', 'ma_failed_login' );
+
+        //* Modify the admin footer text
+        function ma_modify_footer_admin () { echo '<span id="footer-meta"><a href="http://maudience.com" target="_blank">Thank You For Working With Maudience</a></span>'; }
+        add_filter('admin_footer_text', 'ma_modify_footer_admin');
+
+        //* Add theme info box into WordPress Dashboard
+        function ma_add_dashboard_widgets() { wp_add_dashboard_widget('wp_dashboard_widget', 'Theme Details', 'ma_theme_info'); }
+        add_action('wp_dashboard_setup', 'ma_add_dashboard_widgets' );
+
+    /*
+    #   Create widget info for above function: ma_add_dashboard_widgets
+    */
+
+        function ma_theme_info() {
+          echo "
+              <ul>
+                  <li><strong>Developed By:</strong> MAudience</li>
+                  <li><strong>Website:</strong> <a href='http://maudience.com'>http://www.maudience.com</a></li>
+                  <li><strong>Developer Contact:</strong> <a href='mailto:pete@maudience.com'>pete@maudience.com</a></li>
+              </ul>"
+          ;
+        }
+
 /*
 #
 #   ENABLE SHORTCODE IN WIDGETS
@@ -164,15 +252,15 @@ require_once('lib/maudience-phonenumber.php');
                             <?php the_title(); ?>
                         </div><!-- .custom-post-title -->
 
-                        <?php if ( get_post_meta( get_the_ID(), '_lm_meta_value_key2', true ) ) : ?>
+                        <?php if ( get_post_meta( get_the_ID(), '_ma_meta_value_key2', true ) ) : ?>
                             <div class="custom-post-capacity">
-                                <?php echo esc_html(get_post_meta( get_the_ID(), '_lm_meta_value_key2', true )); ?>                           
+                                <?php echo esc_html(get_post_meta( get_the_ID(), '_ma_meta_value_key2', true )); ?>                           
                             </div><!-- .custom-post-capacity -->
                         <?php endif; ?>
 
-                        <?php if ( get_post_meta( get_the_ID(), '_lm_meta_value_key1', true ) ) : ?>
+                        <?php if ( get_post_meta( get_the_ID(), '_ma_meta_value_key1', true ) ) : ?>
                             <div class="custom-post-upselltext">
-                                <?php echo esc_html(get_post_meta( get_the_ID(), '_lm_meta_value_key1', true ))." Person"; ?>                            
+                                <?php echo esc_html(get_post_meta( get_the_ID(), '_ma_meta_value_key1', true ))." Person"; ?>                            
                             </div><!-- .custom-post-upselltext -->
                         <?php endif; ?>
 
@@ -191,7 +279,7 @@ require_once('lib/maudience-phonenumber.php');
         ?></ul><?php
     }
     add_filter("gform_submit_button", "form_submit_button", 10, 2);
-    
+
     function form_submit_button($button, $form){
         $button_title = $form['button']['text'];
         return "<button class='button' id='gform_submit_button_{$form["id"]}'>".$button_title."</button>";
