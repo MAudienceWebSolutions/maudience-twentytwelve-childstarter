@@ -162,6 +162,7 @@ require_once('lib/maudience-phonenumber.php');
             </style>';
         }
         add_action('login_head', 'ma_custom_login_logo');
+
         //* Change the URL of the WordPress login logo
         function ma_url_login_logo(){ return get_bloginfo( 'wpurl' ); }
         add_filter('login_headerurl', 'ma_url_login_logo');
@@ -201,7 +202,9 @@ require_once('lib/maudience-phonenumber.php');
 #   ENABLE SHORTCODE IN WIDGETS
 #
 */
+
     add_filter('widget_text', 'do_shortcode');
+
 /*
 # SPEED OPTIMIZATIONS
 # 
@@ -212,6 +215,7 @@ require_once('lib/maudience-phonenumber.php');
         $scripts->remove( 'jquery');
         $scripts->add( 'jquery', false, array( 'jquery-core' ), '1.10.2' );
     }
+    
     //load jquery from google
     if (!is_admin()) add_action("wp_enqueue_scripts", "maudience_jquery_enqueue", 11);
     function maudience_jquery_enqueue() {
@@ -226,6 +230,7 @@ require_once('lib/maudience-phonenumber.php');
     // function maudience_deregister_styles() {
     //   wp_deregister_style( 'image-lazy-load-frontend' );
     // }
+
 /*
 #
 #   SPEED OPTIMIZATIONS
