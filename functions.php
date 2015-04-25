@@ -85,11 +85,18 @@ require_once('lib/maudience-phonenumber.php');
         /* ADD ADMIN CSS STYLES HERE */
 
         function ma_custom_admin_styles() {
-            $menu_background_color = 'rgba(4, 55, 137,1)';
-            $menu_link_color = 'rgba(249,190,25,0.6)';
-            $menu_currentnav_color = 'rgba(249,190,25,1)';
-            $menu_linkhover_color_gradcolorone = '#f9f9f9';
-            $menu_linkhover_color_gradcolortwo = '#c9c9c9';
+
+            // $menu_background_color = 'rgba(4, 55, 137,1)';
+            // $menu_link_color = 'rgba(249,190,25,0.6)';
+            // $menu_currentnav_color = 'rgba(249,190,25,1)';
+            // $menu_linkhover_color_gradcolorone = '#f9f9f9';
+            // $menu_linkhover_color_gradcolortwo = '#c9c9c9';
+            $menu_background_color = 'add-color-here';
+            $menu_link_color = 'add-color-here';
+            $menu_currentnav_color = 'add-color-here';
+            $menu_linkhover_color_gradcolorone = 'add-color-here';
+            $menu_linkhover_color_gradcolortwo = 'add-color-here';
+
             echo '<style type="text/css">
                /* Styles here! */
 
