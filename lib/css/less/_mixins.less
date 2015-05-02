@@ -1,5 +1,13 @@
-.maudience-flexbox (@flexeffect) {
+/*
 
+    MIXINS
+
+*/
+
+
+
+/* USE FLEXBOX FOR ALIGNMENT WHEN POSSIBLE - NO MORE FLOATS*/
+.maudience-flexbox (@flexeffect) {
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -15,6 +23,4 @@
     -ms-flex-align: @flexeffect;
     -webkit-align-items: @flexeffect;
     align-items: @flexeffect;
-
-
 }

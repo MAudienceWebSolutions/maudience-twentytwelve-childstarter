@@ -27,6 +27,17 @@
 /* GENERAL STYLES
 *****************************************************************/
 
+    //overwrite twentytwelve theme coloring and positioning with our own
+        body {
+            background-color: @child-background-color;
+            
+            .site { box-shadow: none; }
+
+            .site-header { background-color: @child-header-color; }
+
+            footer[role="contentinfo"] { background-color: @child-footer-color; }
+        }
+        
 /* SHELL STYLES
 *****************************************************************/
 
