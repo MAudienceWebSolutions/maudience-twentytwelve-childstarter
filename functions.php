@@ -1,7 +1,7 @@
 <?php
 
 //global $maudience_client_slug = '';
-define( 'MAUDIENCE_CLIENT_SLUG', 'expresslimousineservice' );
+define( 'MAUDIENCE_CLIENT_SLUG', 'examplesitename' );
 require_once('lib/custom-post-types.php');
 require_once('lib/maudience-contactinfo.php');
 
@@ -228,7 +228,7 @@ require_once('lib/maudience-contactinfo.php');
             body { font-family: Futura, "Trebuchet MS", Arial, sans-serif; }
             h1 a 
             { 
-                background-image:url('.get_stylesheet_directory_uri().'/img/european-motors-menu-logo.png) !important; 
+                background-image:url('.get_stylesheet_directory_uri().'/logo.png) !important; 
                 background-size: 211px auto !important;
                 height: 200px !important;
                 width: 311px !important; 
