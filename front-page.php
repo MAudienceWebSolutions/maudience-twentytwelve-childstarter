@@ -21,7 +21,15 @@ get_header(); ?>
 
 					<section id="top-section" class="top-section home-section">
 
-						<div id="slider-section" class="column-left section-column">
+						<div id="top-centerfull" class="column-centerfull section-column">
+							<?php if ( is_active_sidebar( 'home-top-centerfull' ) ) : ?>
+								<div id="home-top-centerfull" class="home-top-centerfull widget-area" role="complementary">
+									<?php dynamic_sidebar( 'home-top-centerfull' ); ?>
+								</div><!-- #home-top-right -->
+							<?php endif; ?>
+						</div>
+
+						<div id="top-left-half" class="column-left section-column">
 							<header class="entry-header">
 								<h1 class="entry-title"><?php the_title(); ?></h1>
 							</header>
@@ -35,7 +43,7 @@ get_header(); ?>
 							</div>
 						</div>
 
-						<div id="instant_rate_finder-section" class="column-right section-column">
+						<div id="top-right-half" class="column-right section-column">
 							<?php if ( is_active_sidebar( 'home-top-right' ) ) : ?>
 								<div id="home-top-right" class="home-top-right widget-area" role="complementary">
 									<?php dynamic_sidebar( 'home-top-right' ); ?>
