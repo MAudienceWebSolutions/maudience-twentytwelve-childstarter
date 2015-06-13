@@ -1,21 +1,22 @@
 <?php
 
 //global $maudience_client_slug = '';
-define( 'MAUDIENCE_CLIENT_SLUG', 'enter_client_name_here' );
+define( 'MAUDIENCE_CLIENT_SLUG', 'examplesitename' );
 require_once('lib/custom-post-types.php');
-require_once('lib/maudience-phonenumber.php');
+require_once('lib/maudience-contactinfo.php');
 
 /*
 #
 #   REGISTER JS AND CSS
 #
 */
+
     function maudience_scripts() {
         //enqueue parent styles
         wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 
         //
-        wp_enqueue_style( MAUDIENCE_CLIENT_SLUG.'-css', get_stylesheet_directory_uri()."/lib/css/style.css" );
+        wp_enqueue_style( MAUDIENCE_CLIENT_SLUG, get_stylesheet_directory_uri()."/lib/css/style.css" );
 
         // wp_enqueue_script(
         //     'custom-js',
@@ -40,6 +41,7 @@ require_once('lib/maudience-phonenumber.php');
     }
     add_action( 'wp_enqueue_scripts', 'maudience_scripts'/*, 15*/ );
 
+
 /*
 #
 #   REGISTER SIDEBARS/WIDGET AREAS
@@ -56,34 +58,89 @@ require_once('lib/maudience-phonenumber.php');
         //     'after_title' => '</h2>',
         // ) );
 
-        // register_sidebar( array(
-        //     'name' => 'Footer Widget Left',
-        //     'id' => 'footer-widget-left',
-        //     'before_widget' => '<div id="footer-widget-left" class="footer-widget-left">',
-        //     'after_widget' => '</div>',
-        //     'before_title' => '<h2 class="rounded">',
-        //     'after_title' => '</h2>',
-        // ) );
+        register_sidebar( array(
+            'name' => 'Home Top Center Full',
+            'id' => 'home-top-centerfull',
+            'before_widget' => '<div id="home-top-centerfull" class="home-top-centerfull">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2 class="rounded">',
+            'after_title' => '</h2>',
+        ) );
+        
+        register_sidebar( array(
+            'name' => 'Home Top Left',
+            'id' => 'home-top-left',
+            'before_widget' => '<div id="home-top-left" class="home-top-left">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2 class="rounded">',
+            'after_title' => '</h2>',
+        ) );
 
-        // register_sidebar( array(
-        //     'name' => 'Footer Widget Center',
-        //     'id' => 'footer-widget-center',
-        //     'before_widget' => '<div id="footer-widget-center" class="footer-widget-center">',
-        //     'after_widget' => '</div>',
-        //     'before_title' => '<h2 class="rounded">',
-        //     'after_title' => '</h2>',
-        // ) );
+        register_sidebar( array(
+            'name' => 'Home Top Right',
+            'id' => 'home-top-right',
+            'before_widget' => '<div id="home-top-right" class="home-top-right">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2 class="rounded">',
+            'after_title' => '</h2>',
+        ) );
 
-        // register_sidebar( array(
-        //     'name' => 'Footer Widget Right',
-        //     'id' => 'footer-widget-right',
-        //     'before_widget' => '<div id="footer-widget-right" class="footer-widget-right">',
-        //     'after_widget' => '</div>',
-        //     'before_title' => '<h2 class="rounded">',
-        //     'after_title' => '</h2>',
-        // ) );
+        register_sidebar( array(
+            'name' => 'Home Middle',
+            'id' => 'home-middle',
+            'before_widget' => '<div id="home-middle" class="home-middle">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2 class="rounded">',
+            'after_title' => '</h2>',
+        ) );
+
+        register_sidebar( array(
+            'name' => 'Home Bottom Left',
+            'id' => 'home-bottom-left',
+            'before_widget' => '<div id="home-bottom-left" class="home-bottom-left">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2 class="rounded">',
+            'after_title' => '</h2>',
+        ) );
+
+        register_sidebar( array(
+            'name' => 'Home Bottom Right',
+            'id' => 'home-bottom-right',
+            'before_widget' => '<div id="home-bottom-right" class="home-bottom-right">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2 class="rounded">',
+            'after_title' => '</h2>',
+        ) );
+
+        register_sidebar( array(
+            'name' => 'Footer Widget Left',
+            'id' => 'footer-widget-left',
+            'before_widget' => '<div id="footer-widget-left" class="footer-widget-left">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2 class="rounded">',
+            'after_title' => '</h2>',
+        ) );
+
+        register_sidebar( array(
+            'name' => 'Footer Widget Center',
+            'id' => 'footer-widget-center',
+            'before_widget' => '<div id="footer-widget-center" class="footer-widget-center">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2 class="rounded">',
+            'after_title' => '</h2>',
+        ) );
+
+        register_sidebar( array(
+            'name' => 'Footer Widget Right',
+            'id' => 'footer-widget-right',
+            'before_widget' => '<div id="footer-widget-right" class="footer-widget-right">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2 class="rounded">',
+            'after_title' => '</h2>',
+        ) );
     }
-    add_action( 'widgets_init', 'maudience_widgets_init' );
+    add_action( 'widgets_init', 'maudience_widgets_init', 100 );
+
 /*
 #
 #   REGISTER MENUS
@@ -91,14 +148,22 @@ require_once('lib/maudience-phonenumber.php');
 #
 */
     function maudience_menus_init() {
-      register_nav_menus(
-        array(
-          'social-media-navigation' => __( 'Social Media Navigation' )
-        )
-      );
+
+        register_nav_menus(
+            array(
+              'social-media-navigation' => __( 'Social Media Navigation' )
+            )
+        );
     }
     add_action( 'init', 'maudience_menus_init' );
-
+    
+    function my_wp_nav_menu_args( $args = '' ) {
+        $args['theme_location'] = 'primary';
+        $args['link_before'] = '<span>';
+        $args['link_after'] = '</span>';
+        return $args;
+    }
+    add_filter( 'wp_nav_menu_args', 'my_wp_nav_menu_args' );
 /*
 #
 #   WHITE LABEL
@@ -172,7 +237,7 @@ require_once('lib/maudience-phonenumber.php');
             body { font-family: Futura, "Trebuchet MS", Arial, sans-serif; }
             h1 a 
             { 
-                background-image:url('.get_stylesheet_directory_uri().'/img/european-motors-menu-logo.png) !important; 
+                background-image:url('.get_stylesheet_directory_uri().'/logo.png) !important; 
                 background-size: 211px auto !important;
                 height: 200px !important;
                 width: 311px !important; 
@@ -263,7 +328,8 @@ require_once('lib/maudience-phonenumber.php');
     function load_fonts() {
         wp_dequeue_style( 'twentytwelve-fonts' );
         wp_deregister_style( 'twentytwelve-fonts' );
-        wp_register_style('googleFonts', 'http://fonts.googleapis.com/css?family=Signika:400,700|Open+Sans:400italic,700italic,400,700&amp;subset=latin,latin-ext');
+        // wp_register_style('googleFonts', 'http://fonts.googleapis.com/css?family=Signika:400,700|Open+Sans:400italic,700italic,400,700&amp;subset=latin,latin-ext');
+        wp_register_style('googleFonts', 'http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,800,700|Oswald');
         wp_enqueue_style( 'googleFonts');
     }
     add_action('wp_print_styles', 'load_fonts');
@@ -271,10 +337,11 @@ require_once('lib/maudience-phonenumber.php');
 #
 #   RETURN CUSTOM POST TYPES
 #
-#   return all if $how_many equals 'all'
 #
+#   Set $how_many to all to return all posts of the specified type
+#   Set $title_or_content to 'both' to display both title and content
 */
-    function maudience_return_custom_posts($post_type, $how_many) {
+    function maudience_return_custom_posts($post_type, $how_many, $title_or_content = 'title') {
         ?><ul class='custom-post-type-list'><?php
         if( $how_many !='all' ){ $posts_per_page = $how_many; }
         $args=array(
@@ -287,38 +354,56 @@ require_once('lib/maudience-phonenumber.php');
         $my_query = new WP_Query($args);
         if( $my_query->have_posts() ) :
           while ($my_query->have_posts()) : $my_query->the_post(); ?>
-            <li class='custom-post-type-list-item'>
+            <li class="custom-post-type-list-item <?php echo get_post_type() ?>">
                 <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
                     <?php if ( has_post_thumbnail() ) : ?>
                         <div class="entry-page-image">
                             <?php the_post_thumbnail(); ?>
                         </div><!-- .entry-page-image -->
                     <?php endif; ?>
-                    <div class="post-image-wrap">
+                    <div class="post-content-wrap">
 
-                        <div class="custom-post-title">
-                            <?php the_title(); ?>
-                        </div><!-- .custom-post-title -->
-
-                        <?php if ( get_post_meta( get_the_ID(), '_ma_meta_value_key2', true ) ) : ?>
-                            <div class="custom-post-capacity">
-                                <?php echo esc_html(get_post_meta( get_the_ID(), '_ma_meta_value_key2', true )); ?>                           
-                            </div><!-- .custom-post-capacity -->
+                        <?php if ( $title_or_content === 'title' ) : ?>
+                            <div class="custom-post-title">
+                                <?php the_title(); ?>
+                            </div><!-- .custom-post-title -->
+                        <?php elseif ( $title_or_content === 'content' ) : ?>
+                            <div class="custom-post-content">
+                                <?php the_content(); ?>
+                            </div><!-- .custom-post-title -->
+                        <?php elseif ( $title_or_content === 'both' ) : ?>
+                            <div class="custom-post-title">
+                                <?php the_title(); ?>
+                            </div><!-- .custom-post-title -->
+                            <div class="custom-post-content">
+                                <?php the_content(); ?>
+                            </div><!-- .custom-post-title -->
                         <?php endif; ?>
 
                         <?php if ( get_post_meta( get_the_ID(), '_ma_meta_value_key1', true ) ) : ?>
+                            <div class="custom-post-capacity">
+                                <span><?php echo esc_html(get_post_meta( get_the_ID(), '_ma_meta_value_key1', true )); ?></span>                           
+                            </div><!-- .custom-post-capacity -->
+                        <?php endif; ?>
+
+                        <?php if ( get_post_meta( get_the_ID(), '_ma_meta_value_key2', true ) ) : ?>
                             <div class="custom-post-upselltext">
-                                <?php echo esc_html(get_post_meta( get_the_ID(), '_ma_meta_value_key1', true ))." Person"; ?>                            
+                                <span><?php echo esc_html(get_post_meta( get_the_ID(), '_ma_meta_value_key2', true )); ?></span>                            
                             </div><!-- .custom-post-upselltext -->
                         <?php endif; ?>
 
-                        
+                        <?php if ( get_post_meta( get_the_ID(), '_ma_meta_value_key3', true ) ) : ?>
+                            <div class="custom-post-authormeta">
+                                <span><?php echo esc_html(get_post_meta( get_the_ID(), '_ma_meta_value_key3', true )); ?></span>                            
+                            </div><!-- .custom-post-upselltext -->
+                        <?php endif; ?>
                     </div>
                 </a>
-                <div class="cpt-button-wrap">
+                <div class="reserve-now-wrap"><a class="els-button" href='/reservations'>Reserve Now ></a></div><!-- .custom-post-upselltext -->              
+               <!--  <div class="cpt-button-wrap">
                     <a class="ctl-button ctl-viewdetails-button" href="<?php the_permalink() ?>" />View Details <span>>></span></a>
                     <a class="ctl-button ctl-inquire-button" href="/contact/" />Inquire</a>
-                </div>
+                </div> -->
             </li>
             <?php
           endwhile;
@@ -326,8 +411,24 @@ require_once('lib/maudience-phonenumber.php');
         wp_reset_query();  // Restore global post data stomped by the_post().
         ?></ul><?php
     }
-    add_filter("gform_submit_button", "form_submit_button", 10, 2);
+    
+    // Add [output_posts type=posts amount=5] shortcode
+    function output_posts_shortcode( $atts ){
+        extract(shortcode_atts(array(
+            'type' => posts,//defaults
+            'amount' => 5,
+            'output' => 'title',
+        ), $atts));
 
+        maudience_return_custom_posts( $type, $amount, $output);
+    }
+    add_shortcode( 'output_posts', 'output_posts_shortcode' );
+/*
+#
+#
+*/
+
+    add_filter("gform_submit_button", "form_submit_button", 10, 2);
     function form_submit_button($button, $form){
         $button_title = $form['button']['text'];
         return "<button class='button' id='gform_submit_button_{$form["id"]}'>".$button_title."</button>";
