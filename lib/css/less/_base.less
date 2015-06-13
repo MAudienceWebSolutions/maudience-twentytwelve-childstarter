@@ -38,7 +38,11 @@
             
             .site { box-shadow: none; }
 
-            .site-header { background-color: @child-header-color; }
+            .site-header {
+                background-color: @child-header-color;
+
+                img.header-image { box-shadow: none; }
+            }
 
             footer[role="contentinfo"] { background-color: @child-footer-color; }
         }

@@ -46,6 +46,9 @@ body .site {
 body .site-header {
   background-color: white;
 }
+body .site-header img.header-image {
+  box-shadow: none;
+}
 body footer[role="contentinfo"] {
   background-color: white;
 }
