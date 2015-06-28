@@ -1,26 +1,85 @@
 /*
 
-    MIXINS
+	MIXINS
 
 */
 
-
-
 /* USE FLEXBOX FOR ALIGNMENT WHEN POSSIBLE - NO MORE FLOATS*/
-.maudience-flexbox (@flexeffect) {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: @flexeffect;
-    -moz-box-pack: @flexeffect;
-    -ms-flex-pack: @flexeffect;
-    -webkit-justify-content: @flexeffect;
-    justify-content: @flexeffect;
-    -webkit-box-align: @flexeffect;
-    -moz-box-align: @flexeffect;
-    -ms-flex-align: @flexeffect;
-    -webkit-align-items: @flexeffect;
-    align-items: @flexeffect;
-}
+
+	.maudience-flexbox (@flexeffect) {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-box-pack: @flexeffect;
+		-moz-box-pack: @flexeffect;
+		-ms-flex-pack: @flexeffect;
+		-webkit-justify-content: @flexeffect;
+		justify-content: @flexeffect;
+		-webkit-box-align: @flexeffect;
+		-moz-box-align: @flexeffect;
+		-ms-flex-align: @flexeffect;
+		-webkit-align-items: @flexeffect;
+		align-items: @flexeffect;
+	}
+
+/* RIGHT POINTING TRANGLE */
+
+	.right-pointing-triangle(@color) {
+		&:after{
+			content: "";
+	        display: inline-block;
+	        width: 0; 
+	        height: 0; 
+	        border-top: 5px solid transparent;
+	        border-bottom: 5px solid transparent;
+	        border-left: 5px solid @color;
+	    }
+	}
+
+/* BUTTON STYLES */
+
+	.btn,
+	.button {
+		display: block;
+		margin: auto;
+		color: white;
+		text-decoration: none;
+
+		&.learn-more {
+			border-radius: 5px;
+			width: 100px;
+			padding: 10px;
+			background-color: @button-color;
+		}
+
+		&.free-online-estimate {
+			height: 50px;
+			width: 250px;
+			background-color: fade(@button-color, 85%);
+			line-height: 50px;
+			text-align: center;
+			font-size: 1.15rem;
+			.right-pointing-triangle(white);
+
+			&:before {
+				height: 50px;
+				width: 50px;
+				display: block;
+				background-color: black;
+				content: " ";
+				background-color: @button-color;
+				float: left;
+			}
+
+			&:after {
+				margin-left: 10px;
+			}
+		}
+
+		&:hover {
+			background-color: fade(@button-color, 50%);
+			color: white;
+		}
+	}

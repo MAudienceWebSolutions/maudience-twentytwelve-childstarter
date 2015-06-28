@@ -233,11 +233,17 @@ require_once('lib/maudience-contactinfo.php');
 
         //* Replace WordPress login logo with your own
         function ma_custom_login_logo() {
+            if (has_header_image()) {
+                $background_image = 'url('.get_header_image().') !important';
+            } else {
+                $background_image = 'url('.get_stylesheet_directory_uri().'/logo.png) !important';
+            }
+            
             echo '<style type="text/css">
             body { font-family: Futura, "Trebuchet MS", Arial, sans-serif; }
             h1 a 
             { 
-                background-image:url('.get_stylesheet_directory_uri().'/logo.png) !important; 
+                background-image: '.$background_image.'; 
                 background-size: 211px auto !important;
                 height: 200px !important;
                 width: 311px !important; 
@@ -245,7 +251,7 @@ require_once('lib/maudience-contactinfo.php');
                 padding-bottom: 0 !important; 
             }
             .login form { margin-top: 10px !important; border: 1px solid #f9be19; }
-            .login {background:#043789;}
+            .login { background:#043789; }
             </style>';
         }
         add_action('login_head', 'ma_custom_login_logo');

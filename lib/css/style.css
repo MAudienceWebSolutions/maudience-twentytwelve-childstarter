@@ -3,10 +3,64 @@
 /* MIXINS */
 /*
 
-    MIXINS
+	MIXINS
 
 */
 /* USE FLEXBOX FOR ALIGNMENT WHEN POSSIBLE - NO MORE FLOATS*/
+/* RIGHT POINTING TRANGLE */
+/* BUTTON STYLES */
+.btn,
+.button {
+  display: block;
+  margin: auto;
+  color: white;
+  text-decoration: none;
+}
+.btn.learn-more,
+.button.learn-more {
+  border-radius: 5px;
+  width: 100px;
+  padding: 10px;
+  background-color: #0a1633;
+}
+.btn.free-online-estimate,
+.button.free-online-estimate {
+  height: 50px;
+  width: 250px;
+  background-color: rgba(10, 22, 51, 0.85);
+  line-height: 50px;
+  text-align: center;
+  font-size: 1.15rem;
+}
+.btn.free-online-estimate:after,
+.button.free-online-estimate:after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid white;
+}
+.btn.free-online-estimate:before,
+.button.free-online-estimate:before {
+  height: 50px;
+  width: 50px;
+  display: block;
+  background-color: black;
+  content: " ";
+  background-color: #0a1633;
+  float: left;
+}
+.btn.free-online-estimate:after,
+.button.free-online-estimate:after {
+  margin-left: 10px;
+}
+.btn:hover,
+.button:hover {
+  background-color: rgba(10, 22, 51, 0.5);
+  color: white;
+}
 /* BASE */
 /*  BASE 
 
@@ -38,29 +92,357 @@ html {
   background-color: white;
 }
 body {
+  border-top: 5px solid #a50000;
+  min-height: 100vh;
+  background-color: #006e97;
+}
+body .site-header,
+body #primary,
+body #secondary .widget {
   background-color: white;
+}
+body #main {
+  background-color: #f2f4f5;
 }
 body .site {
   box-shadow: none;
 }
 body .site-header {
   background-color: white;
+  border-bottom: 2px solid #a9c3d1;
+  padding-bottom: 0;
+}
+body .site-header img.header-image {
+  box-shadow: none;
 }
 body footer[role="contentinfo"] {
-  background-color: white;
+  color: white;
+  background-color: #006e97;
+}
+body footer[role="contentinfo"] a {
+  color: white;
+}
+body footer[role="contentinfo"] a:hover {
+  color: white;
 }
 /* SHELL STYLES
 *****************************************************************/
 /*  ******************************** HEADER ********************************  */
+.site-header {
+  min-height: 115px;
+  margin: 0;
+}
+.site-header .inner-header-wrap > a {
+  display: block;
+  max-width: 30%;
+  float: left;
+}
+.site-header .inner-header-wrap .header-image {
+  margin-top: 0;
+}
 /*  ******************************** MENUS AND NAVIGATION ********************************  */
+.main-navigation {
+  max-width: 70%;
+  float: right;
+  margin-top: 75px;
+}
+.main-navigation a,
+.main-navigation li a,
+.main-navigation .current-menu-item > a,
+.main-navigation .current-menu-ancestor > a,
+.main-navigation .current_page_item > a,
+.main-navigation .current_page_ancestor > a {
+  color: black;
+}
+.main-navigation .menu-primary-menu-container .nav-menu {
+  border: none;
+}
+.main-navigation .menu-primary-menu-container .nav-menu li a {
+  color: #0a1633;
+  font-size: 1rem;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.main-navigation .menu-primary-menu-container .nav-menu li.menu-item-has-children:after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid black;
+}
+/*  ******************************** CONTENT ********************************  */
+#primary {
+  margin: 20px 0;
+  padding: 20px;
+  border-top: 5px solid #a50000;
+}
+article .entry-header {
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
 /*  ******************************** SIDEBAR ********************************  */
+#secondary .widget {
+  padding: 20px;
+}
 /*  ******************************** FOOTER ********************************  */
+footer#colophon {
+  padding: 20px 0;
+}
+footer#colophon a {
+  color: white;
+}
+footer#colophon .widget-area {
+  padding: 0;
+  margin: 0;
+}
+footer#colophon h2 {
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+footer#colophon h3 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+footer#colophon p {
+  font-size: 1rem;
+  font-weight: 100;
+  line-height: 1.25rem;
+}
+footer#colophon span {
+  font-size: 0.95rem;
+  font-weight: 100;
+  line-height: 1rem;
+}
+footer#colophon li a {
+  text-decoration: none;
+}
+footer#colophon .estimate-btn-text {
+  text-align: right;
+  margin: 10px 0;
+  display: block;
+  font-style: italic;
+}
+footer#colophon .footer-contact-wrap {
+  margin: 0 auto 20px;
+}
 /* PLUGIN STYLES
 *****************************************************************/
 /*  ******************************** WOOCOMMERCE ********************************  */
 /*  ******************************** GRAVITYFORMS ********************************  */
+.home-top-centerfull .column-right h2 {
+  background-color: #006e97;
+  padding: 10px 20px 5px;
+  text-transform: capitalize;
+  font-size: 1.75rem;
+  text-align: left;
+}
+#gform_wrapper_1 {
+  background-color: #006e97;
+  padding: 0 20px 20px;
+  margin: 0;
+}
+#gform_wrapper_1 .gform_description {
+  font-size: 0.85rem;
+  display: block;
+  font-weight: 100;
+}
+#gform_wrapper_1 .gform_fields .gfield_label {
+  display: none;
+}
+#gform_wrapper_1 .gform_fields .ginput_container input {
+  border-radius: 0;
+  height: 30px;
+  width: 100%;
+}
+#gform_wrapper_1 .gform_fields .gfield_contains_required .ginput_container {
+  border-right: 5px solid #a50000;
+}
+#gform_wrapper_1 .button {
+  display: block;
+  margin: auto;
+  color: white;
+  text-decoration: none;
+  height: 50px;
+  width: 250px;
+  background-color: rgba(10, 22, 51, 0.85);
+  line-height: 50px;
+  text-align: center;
+  font-size: 1.15rem;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+}
+#gform_wrapper_1 .button.learn-more {
+  border-radius: 5px;
+  width: 100px;
+  padding: 10px;
+  background-color: #0a1633;
+}
+#gform_wrapper_1 .button.free-online-estimate {
+  height: 50px;
+  width: 250px;
+  background-color: rgba(10, 22, 51, 0.85);
+  line-height: 50px;
+  text-align: center;
+  font-size: 1.15rem;
+}
+#gform_wrapper_1 .button.free-online-estimate:after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid white;
+}
+#gform_wrapper_1 .button.free-online-estimate:before {
+  height: 50px;
+  width: 50px;
+  display: block;
+  background-color: black;
+  content: " ";
+  background-color: #0a1633;
+  float: left;
+}
+#gform_wrapper_1 .button.free-online-estimate:after {
+  margin-left: 10px;
+}
+#gform_wrapper_1 .button:hover {
+  background-color: rgba(10, 22, 51, 0.5);
+  color: white;
+}
+#gform_wrapper_1 .button:after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid white;
+}
+#gform_wrapper_1 .button:before {
+  height: 50px;
+  width: 50px;
+  display: block;
+  background-color: black;
+  content: " ";
+  background-color: #0a1633;
+  float: left;
+}
+#gform_wrapper_1 .button:after {
+  margin-left: 10px;
+}
+#gform_wrapper_1 .button:hover {
+  background-image: none;
+  background-color: rgba(10, 22, 51, 0.5);
+}
 /* PAGE SPECIFIC STYLES
 *****************************************************************/
+.template-front-page .site-header {
+  border-bottom: none;
+}
+.template-front-page h2 {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+.template-front-page h3 {
+  font-size: 1.5rem;
+  margin-top: 5px;
+}
+.template-front-page #main {
+  background-color: white;
+}
+.template-front-page #inner-main-wrap {
+  max-width: none;
+}
+.template-front-page #primary {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  border-top: none;
+}
+.template-front-page .site-content article {
+  padding-bottom: 0;
+}
+.template-front-page .our-services-list li {
+  list-style: none;
+}
+.template-front-page .our-services-list li h3 {
+  color: #006e97;
+}
+.template-front-page .our-services-list li h3:before {
+  content: "";
+  display: block;
+  height: 200px;
+  width: 200px;
+  background-color: white;
+  border-radius: 100px;
+  margin: 5px auto 15px;
+  background-image: url('https://placeholdit.imgix.net/~text?txtsize=19&txt=200%C3%97200&w=200&h=200');
+  border: 5px solid white;
+  box-shadow: 0 0 15px lightgrey;
+}
+.template-front-page .top-section .column-centerfull {
+  height: 515px;
+  background-image: url('../images/collision-repair-center-quad-cities-banner-image-home.png');
+  background-size: cover;
+  color: white;
+}
+.template-front-page .top-section .column-centerfull .textwidget .inner-wrap {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: space-between;
+  -moz-box-pack: space-between;
+  -ms-flex-pack: space-between;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-align: space-between;
+  -moz-box-align: space-between;
+  -ms-flex-align: space-between;
+  -webkit-align-items: space-between;
+  align-items: space-between;
+}
+.template-front-page .top-section .column-centerfull .textwidget .column-left {
+  width: 75%;
+}
+.template-front-page .top-section .column-centerfull .textwidget .column-right {
+  width: 35%;
+}
+.template-front-page #main .widget-area {
+  padding: 0;
+  margin: 0;
+}
+.template-front-page .textwidget .content-section {
+  padding: 75px 0;
+  text-align: center;
+  min-height: 400px;
+}
+.template-front-page .textwidget .content-section p {
+  margin: 20px auto;
+  max-width: 87.5%;
+}
+.template-front-page .textwidget .content-section.banner {
+  border-top: 2px solid #a9c3d1;
+}
+.template-front-page .textwidget .content-section.our-services {
+  background-color: #f0f0f0;
+  padding: 15px 0;
+}
+.template-front-page .textwidget .content-section.our-services h2 {
+  margin: 0 auto 20px;
+}
+.template-front-page .textwidget .content-section.services-bottom {
+  min-height: 200px;
+}
+.template-front-page .inner-footer-wrap .widget-area {
+  border: none;
+}
 /* MOBILE - STARTING BOX/POSITION STYLES */
 @media only screen and (min-width: 200px) {
   /*  0UP RESPONSIVE BASE STYLES
@@ -169,6 +551,23 @@ body footer[role="contentinfo"] {
   /*  ******************************** GRAVITYFORMS ********************************  */
   /* PAGE SPECIFIC STYLES
 *****************************************************************/
+  .template-front-page .our-services-list {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: space-between;
+    -moz-box-pack: space-between;
+    -ms-flex-pack: space-between;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: space-between;
+    -moz-box-align: space-between;
+    -ms-flex-align: space-between;
+    -webkit-align-items: space-between;
+    align-items: space-between;
+  }
 }
 /* LARGE DESKTOP + */
 @media only screen and (min-width: 768px) {

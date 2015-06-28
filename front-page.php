@@ -12,7 +12,16 @@
  * @since Twenty Twelve 1.0
  */
 
-get_header(); ?>
+get_header(); 
+
+/*
+<header class="entry-header">
+<h1 class="entry-title"><?php the_title(); ?></h1>
+</header>
+<div class="entry-content"><?php the_content(); ?></div><!-- .entry-content -->
+*/
+
+?>
 
 	<div id="primary" class="site-content">
 		<div id="content" role="main">
@@ -30,10 +39,6 @@ get_header(); ?>
 						</div>
 
 						<div id="top-left-half" class="column-left section-column">
-							<header class="entry-header">
-								<h1 class="entry-title"><?php the_title(); ?></h1>
-							</header>
-							<div class="entry-content"><?php the_content(); ?></div><!-- .entry-content -->
 							<div class="slider-wrap">
 								<?php if ( is_active_sidebar( 'home-top-left' ) ) : ?>
 									<div id="home-top-left" class="home-top-left widget-area" role="complementary">
