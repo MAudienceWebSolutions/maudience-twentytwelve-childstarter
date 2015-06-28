@@ -115,6 +115,9 @@ body .site-header {
 body .site-header img.header-image {
   box-shadow: none;
 }
+body .site-header img.header-image {
+  box-shadow: none;
+}
 body footer[role="contentinfo"] {
   color: white;
   background-color: #006e97;
