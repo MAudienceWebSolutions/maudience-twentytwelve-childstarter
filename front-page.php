@@ -28,64 +28,80 @@ get_header();
 			<?php while ( have_posts() ) : the_post(); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-					<section id="top-section" class="top-section home-section">
-
-						<div id="top-centerfull" class="column-centerfull section-column">
-							<?php if ( is_active_sidebar( 'home-top-centerfull' ) ) : ?>
-								<div id="home-top-centerfull" class="home-top-centerfull widget-area" role="complementary">
-									<?php dynamic_sidebar( 'home-top-centerfull' ); ?>
-								</div><!-- #home-top-right -->
-							<?php endif; ?>
-						</div>
-
-						<div id="top-left-half" class="column-left section-column">
-							<div class="slider-wrap">
-								<?php if ( is_active_sidebar( 'home-top-left' ) ) : ?>
-									<div id="home-top-left" class="home-top-left widget-area" role="complementary">
-										<?php dynamic_sidebar( 'home-top-left' ); ?>
+					<!-- TOP SECTION -->
+						<section id="top-section" class="top-section home-section">
+							<!-- CONTENT SECTION -->
+							<div id="home-content" class="home-content column-centerfull section-column">
+								<?php the_content(); ?>
+							</div>
+							<!-- TOP FULL SECTION -->
+							<div id="top-centerfull" class="column-centerfull section-column">
+								<?php if ( is_active_sidebar( 'home-top-centerfull' ) ) : ?>
+									<div id="home-top-centerfull" class="home-top-centerfull widget-area" role="complementary">
+										<?php dynamic_sidebar( 'home-top-centerfull' ); ?>
 									</div><!-- #home-top-right -->
 								<?php endif; ?>
 							</div>
-						</div>
+							<!-- TOP LEFT SECTION -->
+							<div id="top-left-half" class="column-left section-column">
+								<div class="slider-wrap">
+									<?php if ( is_active_sidebar( 'home-top-left' ) ) : ?>
+										<div id="home-top-left" class="home-top-left widget-area" role="complementary">
+											<?php dynamic_sidebar( 'home-top-left' ); ?>
+										</div><!-- #home-top-right -->
+									<?php endif; ?>
+								</div>
+							</div>
+							<!-- TOP RIGHT SECTION -->
+							<div id="top-right-half" class="column-right section-column">
+								<?php if ( is_active_sidebar( 'home-top-right' ) ) : ?>
+									<div id="home-top-right" class="home-top-right widget-area" role="complementary">
+										<?php dynamic_sidebar( 'home-top-right' ); ?>
+									</div><!-- #home-top-right -->
+								<?php endif; ?>
+							</div>
+						</section>
 
-						<div id="top-right-half" class="column-right section-column">
-							<?php if ( is_active_sidebar( 'home-top-right' ) ) : ?>
-								<div id="home-top-right" class="home-top-right widget-area" role="complementary">
-									<?php dynamic_sidebar( 'home-top-right' ); ?>
-								</div><!-- #home-top-right -->
-							<?php endif; ?>
-						</div>
-					</section>
-
-					<section id="middle-section" class="middle-section home-section">
-						<div class="services-information-output">
-							<?php if ( is_active_sidebar( 'home-middle' ) ) : ?>
-								<div id="home-middle" class="home-middle widget-area" role="complementary">
-									<?php dynamic_sidebar( 'home-middle' ); ?>
-								</div><!-- #footer-widget-left -->
-							<?php endif; ?>
-						</div>
-					</section>
-
-					<section id="bottom-section" class="bottom-section home-section">
-						<div id="testimonials-section" class="column-left section-column">
-							<div class="testimonials-information-output">
-								<?php if ( is_active_sidebar( 'home-bottom-left' ) ) : ?>
-									<div id="home-bottom-left" class="home-bottom-left widget-area" role="complementary">
-										<?php dynamic_sidebar( 'home-bottom-left' ); ?>
+					<!-- MIDDLE SECTION -->
+						<section id="middle-section" class="middle-section home-section">
+							<div class="services-information-output">
+								<?php if ( is_active_sidebar( 'home-middle' ) ) : ?>
+									<div id="home-middle" class="home-middle widget-area" role="complementary">
+										<?php dynamic_sidebar( 'home-middle' ); ?>
 									</div><!-- #footer-widget-left -->
 								<?php endif; ?>
 							</div>
-						</div>
+						</section>
 
-						<div id="service_area-section" class="column-right section-column">
-							<?php if ( is_active_sidebar( 'home-bottom-right' ) ) : ?>
-								<div id="home-bottom-right" class="home-bottom-right widget-area" role="complementary">
-									<?php dynamic_sidebar( 'home-bottom-right' ); ?>
-								</div><!-- #footer-widget-left -->
-							<?php endif; ?>
-						</div>
-					</section>
+					<!-- BOTTOM SECTION -->
+						<section id="bottom-section" class="bottom-section home-section">
+							<!-- TOP FULL SECTION -->
+							<div id="bottom-centerfull" class="column-centerfull section-column">
+								<?php if ( is_active_sidebar( 'home-bottom-centerfull' ) ) : ?>
+									<div id="home-bottom-centerfull" class="home-bottom-centerfull widget-area" role="complementary">
+										<?php dynamic_sidebar( 'home-bottom-centerfull' ); ?>
+									</div><!-- #home-bottom-right -->
+								<?php endif; ?>
+							</div>
+							<!-- TOP LEFT SECTION -->
+							<div id="bottom-left-half" class="column-left section-column">
+								<div class="slider-wrap">
+									<?php if ( is_active_sidebar( 'home-bottom-left' ) ) : ?>
+										<div id="home-bottom-left" class="home-bottom-left widget-area" role="complementary">
+											<?php dynamic_sidebar( 'home-bottom-left' ); ?>
+										</div><!-- #home-bottom-right -->
+									<?php endif; ?>
+								</div>
+							</div>
+							<!-- TOP RIGHT SECTION -->
+							<div id="bottom-right-half" class="column-right section-column">
+								<?php if ( is_active_sidebar( 'home-bottom-right' ) ) : ?>
+									<div id="home-bottom-right" class="home-bottom-right widget-area" role="complementary">
+										<?php dynamic_sidebar( 'home-bottom-right' ); ?>
+									</div><!-- #home-bottom-right -->
+								<?php endif; ?>
+							</div>
+						</section>
 
 				</article><!-- #post -->
 			<?php endwhile; // end of the loop. ?>

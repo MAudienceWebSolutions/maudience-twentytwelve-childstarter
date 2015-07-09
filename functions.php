@@ -2,8 +2,14 @@
 
 //global $maudience_client_slug = '';
 define( 'MAUDIENCE_CLIENT_SLUG', 'examplesitename' );
+//require_once('lib/admin-theme-options.php');
 require_once('lib/custom-post-types.php');
 require_once('lib/maudience-contactinfo.php');
+
+
+define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_stylesheet_directory_uri() . '/lib/theme-admin-settings/' );
+require_once dirname( __FILE__ ) . '/lib/theme-admin-settings/options-framework.php';
+
 
 /*
 #
@@ -89,6 +95,15 @@ require_once('lib/maudience-contactinfo.php');
             'name' => 'Home Middle',
             'id' => 'home-middle',
             'before_widget' => '<div id="home-middle" class="home-middle">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2 class="rounded">',
+            'after_title' => '</h2>',
+        ) );
+
+        register_sidebar( array(
+            'name' => 'Home Bottom Center Full',
+            'id' => 'home-bottom-centerfull',
+            'before_widget' => '<div id="home-bottom-centerfull" class="home-bottom-centerfull">',
             'after_widget' => '</div>',
             'before_title' => '<h2 class="rounded">',
             'after_title' => '</h2>',

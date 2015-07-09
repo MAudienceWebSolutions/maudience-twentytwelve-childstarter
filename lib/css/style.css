@@ -61,6 +61,7 @@
   background-color: rgba(10, 22, 51, 0.5);
   color: white;
 }
+/* MAUDIENCE MIXIN TOOLBOX */
 /* BASE */
 /*  BASE 
 
@@ -111,9 +112,6 @@ body .site-header {
   background-color: white;
   border-bottom: 2px solid #a9c3d1;
   padding-bottom: 0;
-}
-body .site-header img.header-image {
-  box-shadow: none;
 }
 body .site-header img.header-image {
   box-shadow: none;
@@ -390,7 +388,7 @@ footer#colophon .footer-contact-wrap {
 }
 .template-front-page .top-section .column-centerfull {
   height: 515px;
-  background-image: url('../images/collision-repair-center-quad-cities-banner-image-home.png');
+  background-color: lightgrey;
   background-size: cover;
   color: white;
 }
