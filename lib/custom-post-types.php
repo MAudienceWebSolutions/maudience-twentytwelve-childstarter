@@ -37,7 +37,6 @@
 		  register_post_type( $post_type_name, $args ); 
 		}
 		//add_action( 'init', ma_custom_post_type_creator('Post_type_name', 'Post_type_description', public_truefalse, menu_position_number, array( 'title', 'editor', 'thumbnail' ), has_archive, irreg_plural, 'slug'));
-		
 		//add_action( 'init', ma_custom_post_type_creator('Vehicles', 'Holds our fleet vehicles', true, 4, array( 'title', 'editor', 'thumbnail' ), true, false, 'fleet'));
 		//add_action( 'init', ma_custom_post_type_creator('Services', 'Holds our data specific to our services', true, 5, array( 'title', 'editor', 'thumbnail' ), true, false, 'services'));
 		//add_action( 'init', ma_custom_post_type_creator('Testimonials', 'Holds our testimonial specific data', true, 5, array( 'title', 'editor', 'thumbnail' ), true, false, 'testimonials'));
