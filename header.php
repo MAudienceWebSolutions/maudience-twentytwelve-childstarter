@@ -34,6 +34,15 @@
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
 	<header id="masthead" class="site-header" role="banner">
+		<div id="header-top-wrap" class="header-top-wrap">
+			<div id="top-centerfull" class="column-centerfull section-column inner-wrap">
+				<?php if ( is_active_sidebar( 'header-top-centerfull' ) ) : ?>
+					<div id="header-top-centerfull" class="header-top-centerfull widget-area" role="complementary">
+						<?php dynamic_sidebar( 'header-top-centerfull' ); ?>
+					</div><!-- #header-top-right -->
+				<?php endif; ?>
+			</div>
+		</div>
 		<div id="inner-header-wrap" class="inner-header-wrap inner-wrap">
 			<hgroup>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
