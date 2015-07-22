@@ -65,6 +65,15 @@ require_once dirname( __FILE__ ) . '/lib/theme-admin-settings/options-framework.
         // ) );
 
         register_sidebar( array(
+            'name' => 'Header Top Full',
+            'id' => 'header-top-centerfull',
+            'before_widget' => '<div id="header-top-centerfull" class="header-top-centerfull">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2 class="rounded">',
+            'after_title' => '</h2>',
+        ) );
+
+        register_sidebar( array(
             'name' => 'Home Top Center Full',
             'id' => 'home-top-centerfull',
             'before_widget' => '<div id="home-top-centerfull" class="home-top-centerfull">',
