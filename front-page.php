@@ -14,13 +14,6 @@
 
 get_header(); 
 
-/*
-<header class="entry-header">
-<h1 class="entry-title"><?php the_title(); ?></h1>
-</header>
-<div class="entry-content"><?php the_content(); ?></div><!-- .entry-content -->
-*/
-
 ?>
 
 	<div id="primary" class="site-content">
@@ -31,34 +24,36 @@ get_header();
 					<!-- TOP SECTION -->
 						<section id="top-section" class="top-section home-section">
 							<!-- CONTENT SECTION -->
-							<div id="home-content" class="home-content column-centerfull section-column">
+							<div id="home-content" class="home-content column-centerfull section-column inner-wrap">
 								<?php the_content(); ?>
 							</div>
 							<!-- TOP FULL SECTION -->
 							<div id="top-centerfull" class="column-centerfull section-column">
 								<?php if ( is_active_sidebar( 'home-top-centerfull' ) ) : ?>
-									<div id="home-top-centerfull" class="home-top-centerfull widget-area" role="complementary">
+									<div id="home-top-centerfull" class="home-top-centerfull" role="complementary">
 										<?php dynamic_sidebar( 'home-top-centerfull' ); ?>
 									</div><!-- #home-top-right -->
 								<?php endif; ?>
 							</div>
-							<!-- TOP LEFT SECTION -->
-							<div id="top-left-half" class="column-left section-column">
-								<div class="slider-wrap">
-									<?php if ( is_active_sidebar( 'home-top-left' ) ) : ?>
-										<div id="home-top-left" class="home-top-left widget-area" role="complementary">
-											<?php dynamic_sidebar( 'home-top-left' ); ?>
+							<div class="inner-wrap top-left-right-wrap">
+								<!-- TOP LEFT SECTION -->
+								<div id="top-left-half" class="column-left section-column">
+									<div class="slider-wrap">
+										<?php if ( is_active_sidebar( 'home-top-left' ) ) : ?>
+											<div id="home-top-left" class="home-top-left" role="complementary">
+												<?php dynamic_sidebar( 'home-top-left' ); ?>
+											</div><!-- #home-top-right -->
+										<?php endif; ?>
+									</div>
+								</div>
+								<!-- TOP RIGHT SECTION -->
+								<div id="top-right-half" class="column-right section-column">
+									<?php if ( is_active_sidebar( 'home-top-right' ) ) : ?>
+										<div id="home-top-right" class="home-top-right widget-area" role="complementary">
+											<?php dynamic_sidebar( 'home-top-right' ); ?>
 										</div><!-- #home-top-right -->
 									<?php endif; ?>
 								</div>
-							</div>
-							<!-- TOP RIGHT SECTION -->
-							<div id="top-right-half" class="column-right section-column">
-								<?php if ( is_active_sidebar( 'home-top-right' ) ) : ?>
-									<div id="home-top-right" class="home-top-right widget-area" role="complementary">
-										<?php dynamic_sidebar( 'home-top-right' ); ?>
-									</div><!-- #home-top-right -->
-								<?php endif; ?>
 							</div>
 						</section>
 
@@ -66,7 +61,7 @@ get_header();
 						<section id="middle-section" class="middle-section home-section">
 							<div class="services-information-output">
 								<?php if ( is_active_sidebar( 'home-middle' ) ) : ?>
-									<div id="home-middle" class="home-middle widget-area" role="complementary">
+									<div id="home-middle" class="home-middle inner-wrap" role="complementary">
 										<?php dynamic_sidebar( 'home-middle' ); ?>
 									</div><!-- #footer-widget-left -->
 								<?php endif; ?>
@@ -78,28 +73,30 @@ get_header();
 							<!-- TOP FULL SECTION -->
 							<div id="bottom-centerfull" class="column-centerfull section-column">
 								<?php if ( is_active_sidebar( 'home-bottom-centerfull' ) ) : ?>
-									<div id="home-bottom-centerfull" class="home-bottom-centerfull widget-area" role="complementary">
+									<div id="home-bottom-centerfull" class="home-bottom-centerfull" role="complementary">
 										<?php dynamic_sidebar( 'home-bottom-centerfull' ); ?>
 									</div><!-- #home-bottom-right -->
 								<?php endif; ?>
 							</div>
-							<!-- TOP LEFT SECTION -->
-							<div id="bottom-left-half" class="column-left section-column">
-								<div class="slider-wrap">
-									<?php if ( is_active_sidebar( 'home-bottom-left' ) ) : ?>
-										<div id="home-bottom-left" class="home-bottom-left widget-area" role="complementary">
-											<?php dynamic_sidebar( 'home-bottom-left' ); ?>
+							<div class="inner-wrap bottom-left-right-wrap">
+								<!-- TOP LEFT SECTION -->
+								<div id="bottom-left-half" class="column-left section-column">
+									<div class="slider-wrap">
+										<?php if ( is_active_sidebar( 'home-bottom-left' ) ) : ?>
+											<div id="home-bottom-left" class="home-bottom-left" role="complementary">
+												<?php dynamic_sidebar( 'home-bottom-left' ); ?>
+											</div><!-- #home-bottom-right -->
+										<?php endif; ?>
+									</div>
+								</div>
+								<!-- TOP RIGHT SECTION -->
+								<div id="bottom-right-half" class="column-right section-column">
+									<?php if ( is_active_sidebar( 'home-bottom-right' ) ) : ?>
+										<div id="home-bottom-right" class="home-bottom-right" role="complementary">
+											<?php dynamic_sidebar( 'home-bottom-right' ); ?>
 										</div><!-- #home-bottom-right -->
 									<?php endif; ?>
 								</div>
-							</div>
-							<!-- TOP RIGHT SECTION -->
-							<div id="bottom-right-half" class="column-right section-column">
-								<?php if ( is_active_sidebar( 'home-bottom-right' ) ) : ?>
-									<div id="home-bottom-right" class="home-bottom-right widget-area" role="complementary">
-										<?php dynamic_sidebar( 'home-bottom-right' ); ?>
-									</div><!-- #home-bottom-right -->
-								<?php endif; ?>
 							</div>
 						</section>
 

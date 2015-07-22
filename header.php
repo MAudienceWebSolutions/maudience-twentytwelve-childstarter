@@ -64,4 +64,3 @@
 	</header><!-- #masthead -->
 
 	<div id="main" class="wrapper">
-		<div id="inner-main-wrap" class="inner-main-wrap inner-wrap">
