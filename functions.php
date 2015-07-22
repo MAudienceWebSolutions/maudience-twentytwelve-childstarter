@@ -2,14 +2,8 @@
 
 //global $maudience_client_slug = '';
 define( 'MAUDIENCE_CLIENT_SLUG', 'whitneymonumentworks' );
-//require_once('lib/admin-theme-options.php');
 require_once('lib/custom-post-types.php');
 require_once('lib/maudience-theme-settings.php');
-
-
-// define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_stylesheet_directory_uri() . '/lib/theme-admin-settings/' );
-// require_once dirname( __FILE__ ) . '/lib/theme-admin-settings/options-framework.php';
-
 
 /*
 #
