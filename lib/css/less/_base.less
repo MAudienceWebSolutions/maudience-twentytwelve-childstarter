@@ -30,36 +30,33 @@
     //overwrite twentytwelve theme coloring and positioning with our own
 
         html {
-            background-color: @child-footer-color;//same color as footer as footer doesn't stick to bottom naturally
+            // background-color: @child-footer-color;//same color as footer as footer doesn't stick to bottom naturally
+            // background-image: url('http://whitneymonumentworks.maudience.com/wp-content/uploads/2015/07/marble-background.jpg');
         }
         
         body {
-            border-top: 5px solid @child-color-red;
             min-height: 100vh;
-            background-color: @child-color-blue-lite;
+            background-image: url('http://whitneymonumentworks.maudience.com/wp-content/uploads/2015/07/marble-background.jpg');
+            border-bottom: 50px solid @child-color-green;
 
             .site-header,
             #primary,
             #secondary .widget { background-color: @child-background-color; }
-
-            #main { background-color: @child-color-grey-lite; }
             
             .site { box-shadow: none; }
 
             .site-header {
-                background-color: @child-header-color;
-                border-bottom: 2px solid @child-color-blue-elite;
-                padding-bottom: 0;
+                padding: 0;
+                border-bottom: 1px solid lightgrey;
 
                 img.header-image { box-shadow: none; }
             }
 
             footer[role="contentinfo"] {
-                color: white;
-                background-color: @child-color-blue-lite;
+                color: @child-color-green;
 
                 a {
-                    color: white;
+                    color: @child-color-green;
                     &:hover { color: white; }
                 }
             }
@@ -71,8 +68,19 @@
     /*  ******************************** HEADER ********************************  */
 
         .site-header {
-            min-height: 115px;
+            overflow: hidden;
             margin: 0;
+
+            .header-top-wrap {
+                background-color: #437070;
+                height: 40px;
+                color: white;
+                text-align: right;
+
+                .widget-area { margin-top: 15px; }
+
+                .info-wrap { display: inline-block; }
+            }
 
             .inner-header-wrap {
                 > a {
@@ -123,7 +131,6 @@
         #primary {
             margin: 20px 0;
             padding: 20px;
-            border-top: 5px solid @child-color-red;
         }
 
         article {
