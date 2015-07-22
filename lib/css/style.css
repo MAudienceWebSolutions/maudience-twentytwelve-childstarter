@@ -89,39 +89,31 @@
 \* ---------------------------------------------- */
 /* GENERAL STYLES
 *****************************************************************/
-html {
-  background-color: white;
-}
 body {
-  border-top: 5px solid #a50000;
   min-height: 100vh;
-  background-color: #006e97;
+  background-image: url('http://whitneymonumentworks.maudience.com/wp-content/uploads/2015/07/marble-background.jpg');
+  border-bottom: 50px solid #437070;
 }
 body .site-header,
 body #primary,
 body #secondary .widget {
   background-color: white;
 }
-body #main {
-  background-color: #f2f4f5;
-}
 body .site {
   box-shadow: none;
 }
 body .site-header {
-  background-color: white;
-  border-bottom: 2px solid #a9c3d1;
-  padding-bottom: 0;
+  padding: 0;
+  border-bottom: 1px solid lightgrey;
 }
 body .site-header img.header-image {
   box-shadow: none;
 }
 body footer[role="contentinfo"] {
-  color: white;
-  background-color: #006e97;
+  color: #437070;
 }
 body footer[role="contentinfo"] a {
-  color: white;
+  color: #437070;
 }
 body footer[role="contentinfo"] a:hover {
   color: white;
@@ -130,8 +122,20 @@ body footer[role="contentinfo"] a:hover {
 *****************************************************************/
 /*  ******************************** HEADER ********************************  */
 .site-header {
-  min-height: 115px;
+  overflow: hidden;
   margin: 0;
+}
+.site-header .header-top-wrap {
+  background-color: #437070;
+  height: 40px;
+  color: white;
+  text-align: right;
+}
+.site-header .header-top-wrap .widget-area {
+  margin-top: 15px;
+}
+.site-header .header-top-wrap .info-wrap {
+  display: inline-block;
 }
 .site-header .inner-header-wrap > a {
   display: block;
@@ -177,7 +181,6 @@ body footer[role="contentinfo"] a:hover {
 #primary {
   margin: 20px 0;
   padding: 20px;
-  border-top: 5px solid #a50000;
 }
 article .entry-header {
   border-bottom: 1px solid black;
