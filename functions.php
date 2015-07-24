@@ -269,7 +269,7 @@ require_once('lib/maudience-theme-settings.php');
                 padding-bottom: 0 !important; 
             }
             .login form { margin-top: 10px !important; border: 1px solid #f9be19; }
-            .login { background:#043789; }
+            .login { background: #23282D; }
             </style>';
         }
         add_action('login_head', 'ma_custom_login_logo');

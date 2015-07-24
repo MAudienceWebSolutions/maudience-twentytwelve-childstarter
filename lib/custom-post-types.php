@@ -36,14 +36,28 @@
 		  );
 		  register_post_type( $post_type_name, $args ); 
 		}
-		//add_action( 'init', ma_custom_post_type_creator('Post_type_name', 'Post_type_description', public_truefalse, menu_position_number, array( 'title', 'editor', 'thumbnail' ), has_archive, irreg_plural, 'slug'));
-		//add_action( 'init', ma_custom_post_type_creator('Vehicles', 'Holds our fleet vehicles', true, 4, array( 'title', 'editor', 'thumbnail' ), true, false, 'fleet'));
-		//add_action( 'init', ma_custom_post_type_creator('Services', 'Holds our data specific to our services', true, 5, array( 'title', 'editor', 'thumbnail' ), true, false, 'services'));
-		//add_action( 'init', ma_custom_post_type_creator('Testimonials', 'Holds our testimonial specific data', true, 5, array( 'title', 'editor', 'thumbnail' ), true, false, 'testimonials'));
-		// add_action( 'init', ma_custom_post_type_creator('Staff', 'Holds our staff specific data', true, 5, array( 'title', 'editor', 'thumbnail' ), true, false));
-		// add_action( 'init', ma_custom_post_type_creator('Car Care Tips', 'Holds our car care tips.', true, 6, array( 'title', 'editor', 'thumbnail', 'excerpt' ), true, false));
-		// add_action( 'init', ma_custom_post_type_creator('Car Care Videos', 'Holds our car care videos.', true, 7, array( 'title', 'editor', 'thumbnail' ), true, false));
-	
+
+		$services_option = get_option( 'ma_services_cpt_option' );
+		if(1 == $services_option){
+			add_action( 'init', ma_custom_post_type_creator('Services', 'Holds our data specific to our services', true, 5, array( 'title', 'editor', 'thumbnail' ), true, false, 'services'));
+		}
+
+		$testimonials_option = get_option( 'ma_testimonials_cpt_option' );
+		if(1 == $testimonials_option){
+			add_action( 'init', ma_custom_post_type_creator('Testimonials', 'Holds our testimonial specific data', true, 5, array( 'title', 'editor', 'thumbnail' ), true, false, 'testimonials'));
+		}
+
+		$staff_option = get_option( 'ma_staff_cpt_option' );
+		if(1 == $staff_option){
+			add_action( 'init', ma_custom_post_type_creator('Staff', 'Holds our staff specific data', true, 5, array( 'title', 'editor', 'thumbnail' ), true, false));
+		}
+
+		$vehicles_option = get_option( 'ma_vehicles_cpt_option' );
+		if(1 == $vehicles_option){
+			add_action( 'init', ma_custom_post_type_creator('Vehicles', 'Holds our fleet vehicles', true, 4, array( 'title', 'editor', 'thumbnail' ), true, false, 'fleet'));
+		}
+
+		//
 	// add categories to custom post types
 		// add_action( 'init', 'create_contentsliders_taxonomies', 99 );
 		// function create_contentsliders_taxonomies() {
