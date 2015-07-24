@@ -8,7 +8,7 @@
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
-?>
+?>	<?php if( !is_front_page() ) : ?></div><?php endif; ?>
 	</div><!-- #main .wrapper -->
 	<footer id="colophon" role="contentinfo">
 		<div id="inner-footer-wrap" class="inner-footer-wrap inner-wrap">

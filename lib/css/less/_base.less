@@ -29,15 +29,10 @@
 
     //overwrite twentytwelve theme coloring and positioning with our own
 
-        html {
-            // background-color: @child-footer-color;//same color as footer as footer doesn't stick to bottom naturally
-            // background-image: url('http://whitneymonumentworks.maudience.com/wp-content/uploads/2015/07/marble-background.jpg');
-        }
+        html { background-color: @child-background-color; }
         
         body {
             min-height: 100vh;
-            background-image: url('http://whitneymonumentworks.maudience.com/wp-content/uploads/2015/07/marble-background.jpg');
-            border-bottom: 50px solid @child-color-green;
 
             .site-header,
             #primary,
@@ -261,7 +256,10 @@
             margin-top: 5px;
         }
 
-        #main { background-color: white; }
+        #main {
+            background-color: white;
+            color: black;
+        }
 
         #inner-main-wrap { max-width: none; }
 
@@ -297,11 +295,15 @@
             }
         }
 
+        .top-section .column-centerfull,
+        .middle-section,
+        .bottom-section { min-height: 250px; }
+
         .top-section .column-centerfull {
-            height: 515px;
-            background-color: lightgrey;
-            background-size: cover;
-            color: white;
+            .home-top-centerfull {
+                max-width: 960px;
+                margin: auto;
+            }
 
             .textwidget {
 
@@ -310,6 +312,13 @@
                 .column-left { width: 75%; }
 
                 .column-right { width: 35%; }
+            }
+        }
+
+        .bottom-section .column-centerfull {
+            .home-bottom-centerfull {
+                max-width: 960px;
+                margin: auto;
             }
         }
 
@@ -331,7 +340,6 @@
             &.banner { border-top: 2px solid @child-color-blue-elite; }
 
             &.our-services {
-                background-color: @child-color-grey;
                 padding: 15px 0;
 
                 h2 { margin: 0 auto 20px; }

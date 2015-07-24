@@ -89,10 +89,11 @@
 \* ---------------------------------------------- */
 /* GENERAL STYLES
 *****************************************************************/
+html {
+  background-color: white;
+}
 body {
   min-height: 100vh;
-  background-image: url('http://whitneymonumentworks.maudience.com/wp-content/uploads/2015/07/marble-background.jpg');
-  border-bottom: 50px solid #437070;
 }
 body .site-header,
 body #primary,
@@ -358,6 +359,7 @@ footer#colophon .footer-contact-wrap {
 }
 .template-front-page #main {
   background-color: white;
+  color: black;
 }
 .template-front-page #inner-main-wrap {
   max-width: none;
@@ -389,11 +391,14 @@ footer#colophon .footer-contact-wrap {
   border: 5px solid white;
   box-shadow: 0 0 15px lightgrey;
 }
-.template-front-page .top-section .column-centerfull {
-  height: 515px;
-  background-color: lightgrey;
-  background-size: cover;
-  color: white;
+.template-front-page .top-section .column-centerfull,
+.template-front-page .middle-section,
+.template-front-page .bottom-section {
+  min-height: 250px;
+}
+.template-front-page .top-section .column-centerfull .home-top-centerfull {
+  max-width: 960px;
+  margin: auto;
 }
 .template-front-page .top-section .column-centerfull .textwidget .inner-wrap {
   display: -webkit-box;
@@ -418,6 +423,10 @@ footer#colophon .footer-contact-wrap {
 .template-front-page .top-section .column-centerfull .textwidget .column-right {
   width: 35%;
 }
+.template-front-page .bottom-section .column-centerfull .home-bottom-centerfull {
+  max-width: 960px;
+  margin: auto;
+}
 .template-front-page #main .widget-area {
   padding: 0;
   margin: 0;
@@ -435,7 +444,6 @@ footer#colophon .footer-contact-wrap {
   border-top: 2px solid #a9c3d1;
 }
 .template-front-page .textwidget .content-section.our-services {
-  background-color: #f0f0f0;
   padding: 15px 0;
 }
 .template-front-page .textwidget .content-section.our-services h2 {

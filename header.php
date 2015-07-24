@@ -62,5 +62,5 @@
 			
 		</div><!-- #inner-header-wrap -->
 	</header><!-- #masthead -->
-
+	<?php if( !is_front_page() ) : ?><div id="inner-main-wrap" class="inner-main-wrap inner-wrap"><?php endif; ?>
 	<div id="main" class="wrapper">
