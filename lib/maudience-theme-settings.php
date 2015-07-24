@@ -10,6 +10,7 @@ function ma_theme_init() {
 	register_setting( 'ma-settings-group', 'ma_testimonials_cpt_option' );//Testimonials Checkbox Setting
 	register_setting( 'ma-settings-group', 'ma_staff_cpt_option' );//Staff Checkbox Setting
 	register_setting( 'ma-settings-group', 'ma_vehicles_cpt_option' );//Vehicles Checkbox Setting
+	register_setting( 'ma-settings-group', 'ma_gallery_cpt_option' );//Gallery Checkbox Setting
 
 	/* CONTACT INFO CHECKBOXES */
 	register_setting( 'ma-settings-group', 'ma_phonenumber_setting' );//Phone Number Setting
@@ -25,6 +26,7 @@ function ma_theme_init() {
 	add_settings_field( 'ma_setting_testimonials', 'Testimonials Post Type:', 'ma_setting_testimonials_checkbox_callback', 'wpsettings', $section = 'ma_setting_section');
 	add_settings_field( 'ma_setting_staff', 'Staff Post Type:', 'ma_setting_staff_checkbox_callback', 'wpsettings', $section = 'ma_setting_section');
 	add_settings_field( 'ma_setting_vehicles', 'Vehicles Post Type:', 'ma_setting_vehicles_checkbox_callback', 'wpsettings', $section = 'ma_setting_section');
+	add_settings_field( 'ma_setting_gallery', 'Gallery Post Type:', 'ma_setting_gallery_checkbox_callback', 'wpsettings', $section = 'ma_setting_section');
 	add_settings_field( 'ma_setting_phonenumber', 'Phone Number:', 'ma_setting_phonenumber_callback', 'wpsettings', $section = 'ma_setting_section');
 	add_settings_field( 'ma_setting_phonenumberalt', 'Alternate Phone Number:', 'ma_setting_phonenumberalt_callback', 'wpsettings', $section = 'ma_setting_section');
 	add_settings_field( 'ma_setting_email', 'Contact Email:', 'ma_setting_email_callback', 'wpsettings', $section = 'ma_setting_section');
@@ -76,6 +78,15 @@ function ma_setting_vehicles_checkbox_callback() {
 	$option = get_option( 'ma_vehicles_cpt_option' );
 	$html = '<input type="checkbox" id="ma_vehicles_cpt_option" name="ma_vehicles_cpt_option" value="1"' . checked( 1, $option, false ) . '/>';
 	$html .= '<label for="ma_vehicles_cpt_option">Check to enable vehicles.</label>';
+	echo $html;
+
+}
+
+function ma_setting_gallery_checkbox_callback() {
+
+	$option = get_option( 'ma_gallery_cpt_option' );
+	$html = '<input type="checkbox" id="ma_gallery_cpt_option" name="ma_gallery_cpt_option" value="1"' . checked( 1, $option, false ) . '/>';
+	$html .= '<label for="ma_gallery_cpt_option">Check to enable gallery.</label>';
 	echo $html;
 
 }

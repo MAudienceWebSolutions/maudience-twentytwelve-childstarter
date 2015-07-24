@@ -8,7 +8,7 @@
 	 * Custom Post Types, on the fly creation
 	 *
 	 **/
-		function ma_custom_post_type_creator($post_type_name, $description, $public, $menu_position, $supports, $has_archive, $irreg_plural, $slug) {
+		function ma_custom_post_type_creator($post_type_name, $description, $public, $menu_position, $supports, $has_archive, $irreg_plural, $slug, $image_icon) {
 		  if ($irreg_plural) {$plural = 's';} else {$plural = '';}
 		  $labels = array(
 			'name'               => _x( $post_type_name, 'post type general name' ),
@@ -29,6 +29,7 @@
 			'labels'        => $labels,
 			'description'   => $description,
 			'public'        => $public,
+			'menu_icon' =>  $image_icon,
 			'menu_position' => $menu_position,
 			'supports'      => $supports,
 			'rewrite' => array('slug' => $slug),
@@ -38,23 +39,28 @@
 		}
 
 		$services_option = get_option( 'ma_services_cpt_option' );
-		if(1 == $services_option){
-			add_action( 'init', ma_custom_post_type_creator('Services', 'Holds our data specific to our services', true, 5, array( 'title', 'editor', 'thumbnail' ), true, false, 'services'));
+		if ( 1 == $services_option ) {
+			add_action( 'init', ma_custom_post_type_creator('Services', 'Holds our data specific to our services', true, 5, array( 'title', 'editor', 'thumbnail' ), true, false, 'services', 'dashicons-hammer'));
 		}
 
 		$testimonials_option = get_option( 'ma_testimonials_cpt_option' );
-		if(1 == $testimonials_option){
-			add_action( 'init', ma_custom_post_type_creator('Testimonials', 'Holds our testimonial specific data', true, 5, array( 'title', 'editor', 'thumbnail' ), true, false, 'testimonials'));
+		if ( 1 == $testimonials_option ) {
+			add_action( 'init', ma_custom_post_type_creator('Testimonials', 'Holds our testimonial specific data', true, 5, array( 'title', 'editor', 'thumbnail' ), true, false, 'testimonials', 'dashicons-format-quote'));
 		}
 
 		$staff_option = get_option( 'ma_staff_cpt_option' );
-		if(1 == $staff_option){
-			add_action( 'init', ma_custom_post_type_creator('Staff', 'Holds our staff specific data', true, 5, array( 'title', 'editor', 'thumbnail' ), true, false));
+		if ( 1 == $staff_option ) {
+			add_action( 'init', ma_custom_post_type_creator('Staff', 'Holds our staff specific data', true, 5, array( 'title', 'editor', 'thumbnail' ), true, false, 'staff', 'dashicons-groups'));
 		}
 
 		$vehicles_option = get_option( 'ma_vehicles_cpt_option' );
-		if(1 == $vehicles_option){
-			add_action( 'init', ma_custom_post_type_creator('Vehicles', 'Holds our fleet vehicles', true, 4, array( 'title', 'editor', 'thumbnail' ), true, false, 'fleet'));
+		if ( 1 == $vehicles_option ) {
+			add_action( 'init', ma_custom_post_type_creator('Vehicles', 'Holds our fleet vehicles', true, 4, array( 'title', 'editor', 'thumbnail' ), true, false, 'fleet', 'dashicons-admin-generic'));
+		}
+
+		$gallery_option = get_option( 'ma_gallery_cpt_option' );
+		if ( 1 == $gallery_option ) {
+			add_action( 'init', ma_custom_post_type_creator('Gallery', 'Holds our gallery items', true, 4, array( 'title', 'thumbnail', 'page-attributes' ), true, false, 'gallery', 'dashicons-images-alt'));
 		}
 
 		//
